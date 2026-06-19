@@ -1,0 +1,26 @@
+name: FastApi CI Pipeline
+
+on:
+  push:
+    branches: [feature]
+  pull_request:
+    branches: [feature]
+
+
+jobs:
+  test:
+    runs-out: ubuntu-latest
+
+    steps: 
+    - name: Checkout code 
+      uses: actions/checkout@v4
+
+    - name: Set up python 
+      with:
+        python-version: '3.13'
+    
+    - name: Install dependencies 
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        uv sync 
+  
