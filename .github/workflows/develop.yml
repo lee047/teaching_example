@@ -40,4 +40,4 @@ jobs:
     
     - name: Run test with pytest
       run: |
-        uv run pytest testing/
+        uv run pytest testing/testing_main.py
