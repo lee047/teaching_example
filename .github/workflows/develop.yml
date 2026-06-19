@@ -1,8 +1,22 @@
 name: FastApi CI Pipeline
 
 on:
-  push:
-    branches: [feature]
+  workflow_dispatch:
+    inputs:
+      loglevel:
+        description: 'Log Level'
+        requried: true
+        default: 'warning'
+        type: choice
+        options: 
+        - info
+        - warning
+        - debug
+      
+      tags:
+        description: 'Run tags'
+        requried: false
+        type: boolean
 
 
 jobs:
